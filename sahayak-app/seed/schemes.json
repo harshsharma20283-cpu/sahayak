@@ -1,0 +1,284 @@
+[
+  {
+    "id": "old_age_pension",
+    "name_en": "Old Age Pension (Rajasthan)",
+    "name_hi": "वृद्धावस्था पेंशन (राजस्थान)",
+    "category": "old_age",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Monthly pension. Amount: verify on official portal.",
+    "benefit_text_hi": "मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [
+      {
+        "field": "age",
+        "op": ">=",
+        "value": 60,
+        "label_en": "Age 60 or above",
+        "label_hi": "उम्र 60 वर्ष या अधिक",
+        "note": "structural rule, threshold to verify at official portal"
+      }
+    ],
+    "documents": [
+      { "name_en": "Age proof", "name_hi": "उम्र का प्रमाण", "tip_en": "School certificate or any valid age document", "tip_hi": "स्कूल प्रमाण पत्र या उम्र का कोई भी वैध दस्तावेज़" },
+      { "name_en": "Identity proof", "name_hi": "पहचान पत्र", "tip_en": "Any government photo identity card", "tip_hi": "सरकारी फ़ोटो वाला कोई भी पहचान पत्र" },
+      { "name_en": "Bank passbook", "name_hi": "बैंक पासबुक", "tip_en": "Copy of the first page and the latest entry page", "tip_hi": "पहले पन्ने और ताज़ा एंट्री वाले पन्ने की कॉपी" },
+      { "name_en": "Passport size photo", "name_hi": "पासपोर्ट साइज़ फ़ोटो", "tip_en": "A recent colour photo of the applicant", "tip_hi": "आवेदक की हाल की रंगीन फ़ोटो" }
+    ],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://ssp.rajasthan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "widow_pension",
+    "name_en": "Widow / Single Woman Pension",
+    "name_hi": "विधवा / एकल महिला पेंशन",
+    "category": "widow",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Monthly pension for widows and single women. Amount: verify on official portal.",
+    "benefit_text_hi": "विधवा और एकल महिलाओं के लिए मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [
+      {
+        "field": "gender",
+        "op": "==",
+        "value": "F",
+        "label_en": "Woman applicant",
+        "label_hi": "महिला आवेदक",
+        "note": "structural rule, threshold to verify at official portal"
+      },
+      {
+        "field": "marital",
+        "op": "==",
+        "value": "widow",
+        "label_en": "Widowed",
+        "label_hi": "विधवा",
+        "note": "structural rule, threshold to verify at official portal"
+      }
+    ],
+    "documents": [
+      { "name_en": "Identity proof", "name_hi": "पहचान पत्र", "tip_en": "Any government photo identity card", "tip_hi": "सरकारी फ़ोटो वाला कोई भी पहचान पत्र" },
+      { "name_en": "Age proof", "name_hi": "उम्र का प्रमाण", "tip_en": "School certificate or any valid age document", "tip_hi": "स्कूल प्रमाण पत्र या उम्र का कोई भी वैध दस्तावेज़" },
+      { "name_en": "Death certificate of husband", "name_hi": "पति का मृत्यु प्रमाण पत्र", "tip_en": "Issued by the local municipal or gram panchayat office", "tip_hi": "स्थानीय नगरपालिका या ग्राम पंचायत कार्यालय से मिला प्रमाण पत्र" },
+      { "name_en": "Bank passbook", "name_hi": "बैंक पासबुक", "tip_en": "Copy of the first page and the latest entry page", "tip_hi": "पहले पन्ने और ताज़ा एंट्री वाले पन्ने की कॉपी" }
+    ],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://ssp.rajasthan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "small_farmer_pension",
+    "name_en": "Small Farmer Pension",
+    "name_hi": "छोटे किसान पेंशन",
+    "category": "farmer",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Monthly pension for small farmers. Amount: verify on official portal.",
+    "benefit_text_hi": "छोटे किसानों के लिए मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [
+      {
+        "field": "occupation",
+        "op": "==",
+        "value": "farmer",
+        "label_en": "Farmer",
+        "label_hi": "किसान",
+        "note": "structural rule, threshold to verify at official portal"
+      },
+      {
+        "field": "land_bigha",
+        "op": "<=",
+        "value": 5,
+        "label_en": "Land up to 5 bigha",
+        "label_hi": "5 बीघा तक ज़मीन",
+        "note": "structural rule, threshold to verify at official portal"
+      }
+    ],
+    "documents": [
+      { "name_en": "Land records (khatauni)", "name_hi": "ज़मीन के कागज़ (खतौनी)", "tip_en": "Latest copy of land record from the revenue office", "tip_hi": "राजस्व कार्यालय से ज़मीन के रिकॉर्ड की ताज़ा कॉपी" },
+      { "name_en": "Identity proof", "name_hi": "पहचान पत्र", "tip_en": "Any government photo identity card", "tip_hi": "सरकारी फ़ोटो वाला कोई भी पहचान पत्र" },
+      { "name_en": "Bank passbook", "name_hi": "बैंक पासबुक", "tip_en": "Copy of the first page and the latest entry page", "tip_hi": "पहले पन्ने और ताज़ा एंट्री वाले पन्ने की कॉपी" },
+      { "name_en": "Age proof", "name_hi": "उम्र का प्रमाण", "tip_en": "School certificate or any valid age document", "tip_hi": "स्कूल प्रमाण पत्र या उम्र का कोई भी वैध दस्तावेज़" }
+    ],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://ssp.rajasthan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "disability_pension",
+    "name_en": "Disability Pension",
+    "name_hi": "दिव्यांग पेंशन",
+    "category": "disability",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Monthly pension for persons with disability. Amount: verify on official portal.",
+    "benefit_text_hi": "दिव्यांग व्यक्तियों के लिए मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [],
+    "documents": [],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://ssp.rajasthan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "palanhar_child_support",
+    "name_en": "Palanhar Child Support",
+    "name_hi": "पालनहार योजना (बच्चों के लिए सहायता)",
+    "category": "child",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Monthly support for children who lack parental care. Amount: verify on official portal.",
+    "benefit_text_hi": "जिन बच्चों की देखभाल करने वाला कोई नहीं है, उनके लिए मासिक सहायता। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [],
+    "documents": [],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://ssp.rajasthan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "rajasthan_health_cover",
+    "name_en": "Rajasthan state health cover",
+    "name_hi": "राजस्थान स्वास्थ्य बीमा कवर",
+    "category": "health",
+    "level": "state",
+    "state": "Rajasthan",
+    "benefit_type": "cover_insurance",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Health insurance cover. Amount and hospital list: verify on official portal.",
+    "benefit_text_hi": "स्वास्थ्य बीमा कवर। राशि और अस्पताल सूची: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [],
+    "documents": [],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://myscheme.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://myscheme.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "central_nsap_old_age",
+    "name_en": "NSAP Old Age Pension (Central)",
+    "name_hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम – वृद्धावस्था पेंशन (केंद्र)",
+    "category": "old_age",
+    "level": "central",
+    "state": "All India",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Central monthly pension for old age. Amount: verify on official portal.",
+    "benefit_text_hi": "केंद्र सरकार की वृद्धावस्था मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [],
+    "documents": [],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://nsap.nic.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://nsap.nic.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  },
+  {
+    "id": "pm_kisan",
+    "name_en": "PM-Kisan Samman Nidhi",
+    "name_hi": "पीएम-किसान सम्मान निधि",
+    "category": "farmer",
+    "level": "central",
+    "state": "All India",
+    "benefit_type": "cash_monthly",
+    "benefit_monthly_estimate": null,
+    "benefit_text_en": "Cash support for farmer families. Amount: verify on official portal.",
+    "benefit_text_hi": "किसान परिवारों के लिए नकद सहायता। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules": [],
+    "documents": [],
+    "apply_steps": [
+      { "en": "Go to the official portal or the nearest government service centre.", "hi": "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।" },
+      { "en": "Fill the form and attach the documents from the checklist.", "hi": "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।" },
+      { "en": "This application is FREE. Do not pay anyone for it.", "hi": "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।" },
+      { "en": "Submit the form and keep the receipt number safe.", "hi": "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।" }
+    ],
+    "official_url": "https://pmkisan.gov.in",
+    "last_verified": null,
+    "verification_status": "needs_verification",
+    "sources": [
+      { "name": "official portal", "url": "https://pmkisan.gov.in", "amount_shown": null }
+    ],
+    "fee": "Free",
+    "active": true
+  }
+]

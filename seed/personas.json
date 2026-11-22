@@ -1,0 +1,132 @@
+[
+  {
+    "id": "P1",
+    "label": "kamla",
+    "profile": {
+      "age": 62,
+      "gender": "F",
+      "marital": "widow",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "annual_family_income": 40000,
+      "land_bigha": 2,
+      "occupation": "farmer",
+      "children_count": 0,
+      "disability": false
+    },
+    "expected": {
+      "old_age_pension": "LIKELY_ELIGIBLE",
+      "widow_pension": "LIKELY_ELIGIBLE",
+      "old_age_farmer_pension": "LIKELY_ELIGIBLE",
+      "disability_pension": "NOT_ELIGIBLE",
+      "state_health_insurance": "LIKELY_ELIGIBLE",
+      "palanhar_yojana": "NOT_ELIGIBLE",
+      "maternity_nutrition_support": "LIKELY_ELIGIBLE",
+      "central_nsap_pension": "LIKELY_ELIGIBLE"
+    }
+  },
+  {
+    "id": "P2",
+    "label": "ram",
+    "profile": {
+      "age": 70,
+      "gender": "M",
+      "marital": "married",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "annual_family_income": 30000,
+      "land_bigha": 0,
+      "occupation": "labour",
+      "children_count": 0,
+      "disability": false
+    },
+    "expected": {
+      "old_age_pension": "LIKELY_ELIGIBLE",
+      "widow_pension": "NOT_ELIGIBLE",
+      "old_age_farmer_pension": "NOT_ELIGIBLE",
+      "disability_pension": "NOT_ELIGIBLE",
+      "state_health_insurance": "LIKELY_ELIGIBLE",
+      "palanhar_yojana": "NOT_ELIGIBLE",
+      "maternity_nutrition_support": "NOT_ELIGIBLE",
+      "central_nsap_pension": "LIKELY_ELIGIBLE"
+    }
+  },
+  {
+    "id": "P3",
+    "label": "sunita",
+    "profile": {
+      "age": 35,
+      "gender": "F",
+      "marital": "widow",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "annual_family_income": null,
+      "land_bigha": null,
+      "occupation": null,
+      "children_count": 2,
+      "disability": false
+    },
+    "expected": {
+      "old_age_pension": "NOT_ELIGIBLE",
+      "widow_pension": "NEED_MORE_INFO",
+      "old_age_farmer_pension": "NOT_ELIGIBLE",
+      "disability_pension": "NOT_ELIGIBLE",
+      "state_health_insurance": "NEED_MORE_INFO",
+      "palanhar_yojana": "LIKELY_ELIGIBLE",
+      "maternity_nutrition_support": "LIKELY_ELIGIBLE",
+      "central_nsap_pension": "NOT_ELIGIBLE"
+    }
+  },
+  {
+    "id": "P4",
+    "label": "mohan",
+    "profile": {
+      "age": 58,
+      "gender": "M",
+      "marital": "married",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "annual_family_income": null,
+      "land_bigha": 1.5,
+      "occupation": "farmer",
+      "children_count": 0,
+      "disability": false
+    },
+    "expected": {
+      "old_age_pension": "NOT_ELIGIBLE",
+      "widow_pension": "NOT_ELIGIBLE",
+      "old_age_farmer_pension": "NOT_ELIGIBLE",
+      "disability_pension": "NOT_ELIGIBLE",
+      "state_health_insurance": "NEED_MORE_INFO",
+      "palanhar_yojana": "NOT_ELIGIBLE",
+      "maternity_nutrition_support": "NOT_ELIGIBLE",
+      "central_nsap_pension": "NOT_ELIGIBLE"
+    }
+  },
+  {
+    "id": "P5",
+    "label": "edge",
+    "profile": {
+      "age": null,
+      "gender": "F",
+      "marital": "widow",
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "annual_family_income": 30000,
+      "land_bigha": null,
+      "occupation": null,
+      "children_count": 0,
+      "disability": false
+    },
+    "expected": {
+      "old_age_pension": "NEED_MORE_INFO",
+      "widow_pension": "LIKELY_ELIGIBLE",
+      "old_age_farmer_pension": "NEED_MORE_INFO",
+      "disability_pension": "NOT_ELIGIBLE",
+      "state_health_insurance": "LIKELY_ELIGIBLE",
+      "palanhar_yojana": "NOT_ELIGIBLE",
+      "maternity_nutrition_support": "LIKELY_ELIGIBLE",
+      "central_nsap_pension": "NEED_MORE_INFO"
+    }
+  }
+]

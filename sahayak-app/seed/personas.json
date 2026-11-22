@@ -1,0 +1,57 @@
+[
+  {
+    "id": "P1",
+    "label": "kamla",
+    "text": "Meri maa 62 saal ki hai, vidhwa hain, 2 bigha khet hai, Jaipur ke paas rehti hain",
+    "profile": {
+      "age": 62, "gender": "F", "marital": "widow", "state": "Rajasthan", "district": "Jaipur",
+      "annual_family_income": 40000, "land_bigha": 2, "occupation": "farmer",
+      "disability": false, "children_count": 0
+    },
+    "expected": { "widow_pension": "LIKELY_ELIGIBLE", "old_age": "LIKELY_ELIGIBLE", "small_farmer": "LIKELY_ELIGIBLE" }
+  },
+  {
+    "id": "P2",
+    "label": "ram",
+    "text": "Main ek aadmi hoon, 70 saal ka, mazdoor hoon, Jaipur mein rehta hoon, meri income 30000 hai",
+    "profile": {
+      "age": 70, "gender": "M", "marital": "married", "state": "Rajasthan", "district": "Jaipur",
+      "annual_family_income": 30000, "land_bigha": 0, "occupation": "labour",
+      "disability": false, "children_count": 0
+    },
+    "expected": { "widow_pension": "NOT_ELIGIBLE", "old_age": "LIKELY_ELIGIBLE", "small_farmer": "NOT_ELIGIBLE" }
+  },
+  {
+    "id": "P3",
+    "label": "sunita",
+    "text": "मैं सुनीता हूँ, 35 साल की विधवा महिला हूँ, 2 बच्चे हैं, जयपुर में रहती हूँ",
+    "profile": {
+      "age": 35, "gender": "F", "marital": "widow", "state": "Rajasthan", "district": "Jaipur",
+      "annual_family_income": null, "children_count": 2, "land_bigha": null,
+      "occupation": null, "disability": null
+    },
+    "expected": { "widow_pension": "NEED_MORE_INFO", "old_age": "NOT_ELIGIBLE", "small_farmer": "NOT_ELIGIBLE" }
+  },
+  {
+    "id": "P4",
+    "label": "mohan",
+    "text": "Mera naam Mohan hai, main ek aadmi hoon, 58 saal ka, shaadishuda hoon, 1.5 bigha khet hai, kisan hoon, Jaipur mein rehta hoon",
+    "profile": {
+      "age": 58, "gender": "M", "marital": "married", "state": "Rajasthan", "district": "Jaipur",
+      "annual_family_income": null, "land_bigha": 1.5, "occupation": "farmer",
+      "disability": null, "children_count": 0
+    },
+    "expected": { "widow_pension": "NOT_ELIGIBLE", "old_age": "NOT_ELIGIBLE", "small_farmer": "NOT_ELIGIBLE" }
+  },
+  {
+    "id": "P5",
+    "label": "edge",
+    "text": "मैं गाँव में रहता हूँ",
+    "profile": {
+      "age": null, "gender": null, "marital": null, "state": null, "district": null,
+      "annual_family_income": null, "land_bigha": null, "occupation": null,
+      "disability": null, "children_count": null
+    },
+    "expected": { "widow_pension": "NEED_MORE_INFO", "old_age": "NEED_MORE_INFO", "small_farmer": "NEED_MORE_INFO" }
+  }
+]

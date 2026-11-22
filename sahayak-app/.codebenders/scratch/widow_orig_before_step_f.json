@@ -1,0 +1,86 @@
+{
+    "id":  "widow_pension",
+    "name_en":  "Widow / Single Woman Pension",
+    "name_hi":  "विधवा / एकल महिला पेंशन",
+    "category":  "widow",
+    "level":  "state",
+    "state":  "Rajasthan",
+    "benefit_type":  "cash_monthly",
+    "benefit_monthly_estimate":  null,
+    "benefit_text_en":  "Monthly pension for widows and single women. Amount: verify on official portal.",
+    "benefit_text_hi":  "विधवा और एकल महिलाओं के लिए मासिक पेंशन। राशि: आधिकारिक पोर्टल पर जाँचें।",
+    "rules":  [
+                  {
+                      "field":  "gender",
+                      "op":  "==",
+                      "value":  "F",
+                      "label_en":  "Woman applicant",
+                      "label_hi":  "महिला आवेदक",
+                      "note":  "structural rule, threshold to verify at official portal"
+                  },
+                  {
+                      "field":  "marital",
+                      "op":  "==",
+                      "value":  "widow",
+                      "label_en":  "Widowed",
+                      "label_hi":  "विधवा",
+                      "note":  "structural rule, threshold to verify at official portal"
+                  }
+              ],
+    "documents":  [
+                      {
+                          "name_en":  "Identity proof",
+                          "name_hi":  "पहचान पत्र",
+                          "tip_en":  "Any government photo identity card",
+                          "tip_hi":  "सरकारी फ़ोटो वाला कोई भी पहचान पत्र"
+                      },
+                      {
+                          "name_en":  "Age proof",
+                          "name_hi":  "उम्र का प्रमाण",
+                          "tip_en":  "School certificate or any valid age document",
+                          "tip_hi":  "स्कूल प्रमाण पत्र या उम्र का कोई भी वैध दस्तावेज़"
+                      },
+                      {
+                          "name_en":  "Death certificate of husband",
+                          "name_hi":  "पति का मृत्यु प्रमाण पत्र",
+                          "tip_en":  "Issued by the local municipal or gram panchayat office",
+                          "tip_hi":  "स्थानीय नगरपालिका या ग्राम पंचायत कार्यालय से मिला प्रमाण पत्र"
+                      },
+                      {
+                          "name_en":  "Bank passbook",
+                          "name_hi":  "बैंक पासबुक",
+                          "tip_en":  "Copy of the first page and the latest entry page",
+                          "tip_hi":  "पहले पन्ने और ताज़ा एंट्री वाले पन्ने की कॉपी"
+                      }
+                  ],
+    "apply_steps":  [
+                        {
+                            "en":  "Go to the official portal or the nearest government service centre.",
+                            "hi":  "आधिकारिक पोर्टल पर जाएँ या नज़दीकी सरकारी सेवा केंद्र पर जाएँ।"
+                        },
+                        {
+                            "en":  "Fill the form and attach the documents from the checklist.",
+                            "hi":  "फ़ॉर्म भरें और चेकलिस्ट के दस्तावेज़ लगाएँ।"
+                        },
+                        {
+                            "en":  "This application is FREE. Do not pay anyone for it.",
+                            "hi":  "यह आवेदन मुफ़्त है। इसके लिए किसी को पैसे न दें।"
+                        },
+                        {
+                            "en":  "Submit the form and keep the receipt number safe.",
+                            "hi":  "फ़ॉर्म जमा करें और रसीद नंबर संभाल कर रखें।"
+                        }
+                    ],
+    "official_url":  "https://ssp.rajasthan.gov.in",
+    "last_verified":  null,
+    "verification_status":  "needs_verification",
+    "sources":  [
+                    {
+                        "name":  "official portal",
+                        "url":  "https://ssp.rajasthan.gov.in",
+                        "amount_shown":  null
+                    }
+                ],
+    "fee":  "Free",
+    "active":  true
+}

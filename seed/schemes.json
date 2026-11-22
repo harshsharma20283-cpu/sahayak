@@ -1,0 +1,254 @@
+[
+  {
+    "id": "old_age_pension",
+    "name_en": "Old Age Pension (SAMPLE, verify before demo)",
+    "name_hi": "वृद्धावस्था पेंशन",
+    "category": "pension",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Monthly pension (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "age", "op": ">=", "value": 60, "label_en": "Age 60 or above", "label_hi": "आयु 60 वर्ष या अधिक", "note": "placeholder value" },
+      { "field": "annual_family_income", "op": "<=", "value": 60000, "label_en": "Family income up to Rs 60,000 a year", "label_hi": "परिवार की वार्षिक आय 60,000 रुपये तक", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Age proof", "tip": "Birth certificate, school leaving certificate or Aadhaar" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" },
+      { "name": "Jan Aadhaar card required", "tip": "Family ID under Rajasthan Jan Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal ssp.rajasthan.gov.in",
+      "Fill the form and submit the documents listed above",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "widow_pension",
+    "name_en": "Widow Pension (SAMPLE, verify before demo)",
+    "name_hi": "विधवा पेंशन",
+    "category": "pension",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Monthly pension (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "gender", "op": "==", "value": "F", "label_en": "Woman applicant", "label_hi": "महिला आवेदक" },
+      { "field": "marital", "op": "==", "value": "widow", "label_en": "Widowed", "label_hi": "विधवा" },
+      { "field": "annual_family_income", "op": "<=", "value": 60000, "label_en": "Family income up to Rs 60,000 a year", "label_hi": "परिवार की वार्षिक आय 60,000 रुपये तक", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Husband's death certificate", "tip": "Issued by the municipal body or gram panchayat" },
+      { "name": "Age proof", "tip": "Birth certificate, school leaving certificate or Aadhaar" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal ssp.rajasthan.gov.in",
+      "Fill the form and attach the husband's death certificate",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "old_age_farmer_pension",
+    "name_en": "Old Age Farmer Pension (SAMPLE, verify before demo)",
+    "name_hi": "वृद्ध किसान पेंशन",
+    "category": "pension",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Monthly pension (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "age", "op": ">=", "value": 60, "label_en": "Age 60 or above", "label_hi": "आयु 60 वर्ष या अधिक", "note": "placeholder value" },
+      { "field": "occupation", "op": "==", "value": "farmer", "label_en": "Works as a farmer", "label_hi": "किसान हैं" },
+      { "field": "land_bigha", "op": "<=", "value": 5, "label_en": "Land up to 5 bigha", "label_hi": "5 बीघा तक भूमि", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Age proof", "tip": "Birth certificate, school leaving certificate or Aadhaar" },
+      { "name": "Land records (Jamabandi)", "tip": "Copy of land record from the Patwari or online Jamabandi" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal ssp.rajasthan.gov.in",
+      "Fill the form and attach land records",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "disability_pension",
+    "name_en": "Disability Pension (SAMPLE, verify before demo)",
+    "name_hi": "दिव्यांग पेंशन",
+    "category": "pension",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Monthly pension (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "disability", "op": "==", "value": true, "label_en": "Person with disability", "label_hi": "दिव्यांगता वाले व्यक्ति" },
+      { "field": "annual_family_income", "op": "<=", "value": 60000, "label_en": "Family income up to Rs 60,000 a year", "label_hi": "परिवार की वार्षिक आय 60,000 रुपये तक", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Disability certificate", "tip": "UDID card or certificate from the medical board" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal ssp.rajasthan.gov.in",
+      "Fill the form and attach the disability certificate",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://ssp.rajasthan.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "state_health_insurance",
+    "name_en": "State Health Insurance Scheme (SAMPLE, verify before demo)",
+    "name_hi": "राज्य स्वास्थ्य बीमा योजना",
+    "category": "health",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Health cover for hospital treatment (cover amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "annual_family_income", "op": "<=", "value": 60000, "label_en": "Family income up to Rs 60,000 a year", "label_hi": "परिवार की वार्षिक आय 60,000 रुपये तक", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Jan Aadhaar card required", "tip": "Family ID under Rajasthan Jan Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal myscheme.gov.in",
+      "Fill the form and submit the documents listed above",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://myscheme.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "palanhar_yojana",
+    "name_en": "Palanhar Yojana (SAMPLE, verify before demo)",
+    "name_hi": "पालनहार योजना",
+    "category": "child_support",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Monthly support for children's upbringing (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "children_count", "op": ">=", "value": 1, "label_en": "Has at least one child", "label_hi": "कम से कम एक बच्चा" },
+      { "field": "marital", "op": "in", "value": ["widow", "separated", "divorced"], "label_en": "Widowed, separated or divorced", "label_hi": "विधवा, अलग रह रही या तलाकशुदा" }
+    ],
+    "documents": [
+      { "name": "Child's birth certificate", "tip": "Birth certificate of each eligible child" },
+      { "name": "Husband's death certificate", "tip": "Or divorce / separation proof, as applicable" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal myscheme.gov.in",
+      "Fill the form and attach children's birth certificates",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://myscheme.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "maternity_nutrition_support",
+    "name_en": "Maternity Nutrition Support (SAMPLE, verify before demo)",
+    "name_hi": "मातृत्व पोषण सहायता",
+    "category": "health",
+    "state": "Rajasthan",
+    "level": "state",
+    "benefit_text": "Nutrition support during pregnancy (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "gender", "op": "==", "value": "F", "label_en": "Woman applicant", "label_hi": "महिला आवेदक" }
+    ],
+    "documents": [
+      { "name": "Pregnancy registration (MCP card)", "tip": "Mother and Child Protection card from the health centre" },
+      { "name": "Age proof", "tip": "Birth certificate, school leaving certificate or Aadhaar" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal myscheme.gov.in",
+      "Fill the form and attach the MCP card",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://myscheme.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  },
+  {
+    "id": "central_nsap_pension",
+    "name_en": "Central NSAP Old Age Pension (SAMPLE, verify before demo)",
+    "name_hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम पेंशन (NSAP)",
+    "category": "pension",
+    "state": "Rajasthan",
+    "level": "central",
+    "benefit_text": "Monthly central pension (amount: verify on official portal)",
+    "benefit_monthly_estimate": null,
+    "rules": [
+      { "field": "state", "op": "==", "value": "Rajasthan", "label_en": "Resident of Rajasthan", "label_hi": "राजस्थान का निवासी" },
+      { "field": "age", "op": ">=", "value": 60, "label_en": "Age 60 or above", "label_hi": "आयु 60 वर्ष या अधिक", "note": "placeholder value" },
+      { "field": "annual_family_income", "op": "<=", "value": 60000, "label_en": "Family income up to Rs 60,000 a year", "label_hi": "परिवार की वार्षिक आय 60,000 रुपये तक", "note": "placeholder value" }
+    ],
+    "documents": [
+      { "name": "Age proof", "tip": "Birth certificate, school leaving certificate or Aadhaar" },
+      { "name": "Income proof / certificate", "tip": "Income certificate from Tehsil or self-declaration as the portal asks" },
+      { "name": "Bank passbook", "tip": "Passbook of an account linked to Aadhaar" },
+      { "name": "Aadhaar card", "tip": "Original and a photocopy" }
+    ],
+    "apply_steps": [
+      "Visit e-Mitra kiosk or the official portal myscheme.gov.in",
+      "Fill the form and submit the documents listed above",
+      "It is FREE to apply. Do not pay any agent.",
+      "Keep the receipt number safely to track your application"
+    ],
+    "official_url": "https://myscheme.gov.in",
+    "last_verified": "VERIFY",
+    "fee": "Free",
+    "active": true,
+    "note": "Sample placeholder values; verify at official portal before demo"
+  }
+]

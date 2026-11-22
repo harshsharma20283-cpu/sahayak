@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #E8F5EE 0%, #FFF6E5 50%, #E6F0FF 100%);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 32px rgba(31, 111, 74, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --glass-strong-bg: rgba(255, 255, 255, 0.75);
+  --glass-strong-border: rgba(255, 255, 255, 0.8);
+  --glass-strong-shadow: 0 10px 40px rgba(31, 111, 74, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --color-ink: #14211B;
+  --color-ink-secondary: #4B5B53;
+  --color-primary: #1F6F4A;
+  --color-accent: #F59E0B;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-neutral: #6B7280;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--color-ink);
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* WCAG AA Visible Focus Ring for elderly accessibility */
+  *:focus-visible {
+    outline: 3px solid #1F6F4A !important;
+    outline-offset: 2px !important;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  .heading-2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
+  .heading-3 {
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+
+  /* Liquid Glass Components */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .glass-strong {
+    background: var(--glass-strong-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-strong-border);
+    box-shadow: var(--glass-strong-shadow);
+  }
+
+  .glass-pill {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 9999px;
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
+  }
+
+  /* Motion interactions */
+  .glass-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(31, 111, 74, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .glass-hover:active {
+    transform: scale(0.98);
+  }
+
+  .btn-press {
+    transition: transform 200ms ease, opacity 200ms ease, box-shadow 200ms ease;
+  }
+  .btn-press:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Fallback for browsers not supporting backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-card,
+  .card,
+  .glass-strong,
+  .glass-pill,
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.94) !important;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-only-slip,
+  .print-only-slip * {
+    visibility: visible;
+  }
+  .print-only-slip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}

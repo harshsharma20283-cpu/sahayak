@@ -1,0 +1,20 @@
+
+> sahayak-app@0.1.0 dev
+> next dev -p 3071
+
+  ▲ Next.js 14.2.15
+  - Local:        http://localhost:3071
+
+ ✓ Starting...
+ ✓ Ready in 7.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 20.1s (534 modules)
+ GET / 200 in 181ms
+ ○ Compiling /scheme/[id] ...
+ ✓ Compiled /scheme/[id] in 8.7s (559 modules)
+ ✓ Compiled in 826ms (278 modules)
+ GET /scheme/widow_pension 200 in 11002ms
+ ○ Compiling /family ...
+ ✓ Compiled /family in 718ms (551 modules)
+ GET /family 200 in 1109ms
+[?25h
