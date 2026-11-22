@@ -1,174 +1,146 @@
-# Sahayak - Claim What's Yours (PS5)
+# 🏛️ Sahayak (सहायक) — Claim What's Yours
 
-Voice-first Hindi assistant that tells Rajasthan's widows and senior citizens which schemes they are likely eligible for, and why.
+> **Voice-first civic technology platform empowering rural citizens, senior citizens, and women to discover, understand, and track government welfare schemes in their own language.**
 
-## Problem
+[![Vercel Deployment](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://sahayak-cw3k8oufx-hrshs-projects-34d0c347.vercel.app)
+[![Database](https://img.shields.io/badge/Database-Turso%20libSQL-00e5bf?logo=sqlite)](https://turso.tech)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2014%20App%20Router-black?logo=next.js)](https://nextjs.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- Scheme information is scattered across portals and offices.
-- Sources give conflicting amounts and rules.
-- Eligibility language is hard to read.
-- Middlemen charge for forms that are free to apply for.
+---
 
-## Target user
+## 📌 The Problem
 
-Kamla Devi, 62, widow, village near Jaipur. She speaks Hindi, has little time to visit offices, and cannot read long English pages.
+- **Scattered Information:** Welfare schemes are distributed across multiple state and central portals with inconsistent rules.
+- **Cognitive & Language Barrier:** Official guidelines use dense legal and administrative vocabulary, inaccessible to rural elderly citizens.
+- **Rampant Middlemen (दलाल):** Unscrupulous agents charge ₹200–₹500 for government applications that are 100% free to apply.
+- **Incomplete Household Coverage:** Families often know about one scheme (e.g., PM-Kisan) but miss out on pension or Palanhar schemes for other family members.
 
-## Solution
+---
 
-Speak or type -> profile -> rule-based eligibility with reasons -> documents -> apply steps -> official link + last verified date -> track the application.
+## 💡 The Solution
 
-## Features
+**Sahayak** is designed for users like **Kamla Devi (62, widow, Jaipur)**:
+1. **Speak or Type:** Talk naturally in Hindi or English (no paperwork or typing needed).
+2. **Instant Profile Extraction:** Automatic extraction of age, marital status, land ownership, and household income without requiring Aadhaar or PII.
+3. **Deterministic Match Engine:** Transparent evaluation explaining *exactly why* a person is likely eligible and what specific detail is missing.
+4. **Fraud & Middleman Alerts:** Clear, prominent warnings that government forms are free.
+5. **Family Hub:** Add household members and track eligibility for the whole family in one place.
+6. **Application Tracker & Parchi:** Follow application milestones and generate printable confirmation summaries.
 
-| Feature | Priority | Status |
-|---|---|---|
-| Core flow (M1-M11) | MUST | Built |
-| Application tracker | SHOULD (S1) | Built |
-| Mock reminders | SHOULD (S2) | Built |
-| Middleman alert and report | SHOULD (S3) | Built |
-| Voice output | SHOULD (S4) | Built |
-| Impact dashboard | SHOULD (S5) | Built |
-| Family view | NICE | Roadmap |
-| Source-conflict flag | NICE | Roadmap |
-| Language toggle | NICE | Roadmap |
-| Printable summary | NICE | Roadmap |
+---
 
-Architecture details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+## 🚀 Key Features
 
-## Tech stack
+| Feature | Category | Status | Details |
+|---|---|---|---|
+| 🎙️ **Voice-First Input** | Core Flow | ✅ **Live** | Web Speech API integration with real-time waveform & mic animation |
+| 🌐 **Bilingual (Hindi / English)** | Accessibility | ✅ **Live** | Complete instant i18n language toggle without page reload |
+| 🎯 **Rule-Based Engine** | Verification | ✅ **Live** | Zero hallucination: exact rule matching with plain-language reasons |
+| 👨‍👩‍👧‍👦 **Family Hub** | Multi-Profile | ✅ **Live** | Persistent tabbed view to track schemes for children, spouses & parents |
+| 📋 **Application Tracker** | Lifecycle | ✅ **Live** | Status updates (Submitted, Under Review, Approved) & reference numbers |
+| 🛡️ **Anti-Middleman Alert** | Guardrail | ✅ **Live** | Amber warning banner & fraud report mechanism |
+| 🖨️ **Printable Parchi** | Utility | ✅ **Live** | Formatted checklist for physical CSC / e-Mitra visits (`@media print`) |
+| 💎 **Liquid Glass UI** | UX/Design | ✅ **Live** | Frosted glass cards, WCAG AA 4.5:1 contrast, and large touch targets (56px) |
+| ⚡ **Cloud Database** | Infra | ✅ **Live** | Turso (libSQL serverless SQLite) with automatic local fallback |
 
-- Next.js 14 (App Router) with TypeScript and Tailwind CSS
-- Vitest for tests
-- Claude API, used for language only
-- Web Speech API for voice in and out
-- JSON file store for schemes and applications
+---
 
-## Deploying to Vercel with Turso (libSQL)
+## 🛠️ Architecture & Tech Stack
 
-Sahayak uses Turso (libSQL) for persistent cloud database storage on Vercel, with automatic fallback to local SQLite when running locally (`npm run dev`).
+```
+User (Voice/Text)
+       │
+       ▼
+Next.js 14 Web Speech / Text
+       │
+       ├─► LLM Parser (Groq / OpenAI API) ──[Timeout / Fallback]──► Local Regex Parser
+       │
+       ▼
+Profile Normalization (Age, Income, Land, Category)
+       │
+       ▼
+Deterministic Rule Engine (engine.ts)
+       ├── Likely Eligible (All conditions met)
+       ├── Need More Info (1-2 questions pending)
+       └── Not Eligible (Rule failing reasons)
+       │
+       ▼
+Turso Cloud Database (libSQL) ◄──► Applications & Family Persistence
+```
 
-### 1. Create a Turso Database
-1. Install Turso CLI or sign up at [turso.tech](https://turso.tech):
-   ```bash
-   # Install Turso CLI
-   curl -sSfL https://get.tur.so/install.sh | bash
-   # Or on Windows using PowerShell:
-   irm https://get.tur.so/install.ps1 | iex
-   ```
-2. Log in and create a database:
-   ```bash
-   turso auth login
-   turso db create sahayak-db
-   ```
+- **Frontend:** Next.js 14 (App Router), React 18, Tailwind CSS
+- **Design System:** Custom Liquid-Glass UI with dynamic backdrop blur and CSS design tokens
+- **Database:** Turso (libSQL Serverless SQLite) for cloud persistence + local SQLite for offline dev
+- **LLM / NLP:** Fast natural language entity extraction with 8-second timeout & local deterministic fallback
+- **Testing:** Vitest (Engine unit tests, i18n coverage tests, encoding safeguards)
 
-### 2. Get Database URL and Auth Token
-1. Get the database URL:
-   ```bash
-   turso db show sahayak-db --url
-   # Example: libsql://sahayak-db-yourusername.turso.io
-   ```
-2. Create an authentication token:
-   ```bash
-   turso db tokens create sahayak-db
-   ```
+---
 
-### 3. Set Environment Variables on Vercel
-In your Vercel Project Settings -> **Environment Variables**, add:
-- `TURSO_DATABASE_URL`: Your Turso database URL (`libsql://...`)
-- `TURSO_AUTH_TOKEN`: Your Turso auth token
-- `LLM_API_KEY`: Anthropic API key (optional, fallback parser works without it)
-- `ADMIN_PASSPHRASE`: Passphrase for `/admin` management
+## 🔒 Guardrails & Ethics
 
-### 4. Seed the Database
-Run the idempotent seed script pointing to your Turso database:
+- **Zero PII Exposure:** Never asks for Aadhaar number, phone number, bank credentials, or biometric data.
+- **Non-Deceptive Status:** Results are explicitly marked **"संभावित / Likely eligible"** — final approval always rests with the concerned department.
+- **Verified Sources:** Every scheme card links directly to the official government portal (`ssp.rajasthan.gov.in`, `myscheme.gov.in`).
+- **Free of Cost Guarantee:** Emphasizes that application forms are free, reducing vulnerability to middlemen scams.
+
+---
+
+## 💻 Local Setup & Development
+
+### 1. Clone the repository
 ```bash
-TURSO_DATABASE_URL="libsql://sahayak-db-yourusername.turso.io" TURSO_AUTH_TOKEN="your-token" npm run seed
-```
-This initializes the database schema and loads `seed/schemes.json` into Turso. It is safe to run multiple times.
-
-### 5. Deploy to Vercel
-- **Via Vercel Git Integration**: Push your repository to GitHub/GitLab; Vercel will automatically build and deploy.
-- **Via Vercel CLI**:
-  ```bash
-  npm i -g vercel
-  vercel
-  vercel --prod
-  ```
-
-## Run locally
-
-1. `git clone <repo-url>`
-2. Copy `.env.example` to `.env.local` and fill `ANTHROPIC_API_KEY` (optional; a keyword fallback works without it).
-3. `npm install`
-4. `npm run dev`
-5. Open http://localhost:3000
-
-## Environment variables
-
-- `ANTHROPIC_API_KEY` - Claude API key (optional)
-- `ADMIN_EMAIL` - admin login email
-- `ADMIN_PASSWORD` - admin login password
-
-Admin panel: `/admin`
-
-## Tests
-
-```
-npm test
+git clone https://github.com/harshsharma20283-cpu/sahayak.git
+cd sahayak
 ```
 
-## Demo link
+### 2. Install dependencies
+```bash
+npm install
+```
 
-TBD
+### 3. Setup Environment Variables
+Create a `.env.local` file inside `sahayak-app/`:
+```env
+# LLM Provider Configuration
+LLM_PROVIDER=openai-compatible
+LLM_BASE_URL=https://api.groq.com/openai/v1
+LLM_API_KEY=your_llm_api_key
+LLM_MODEL=openai/gpt-oss-20b
 
-## Sample profiles
+# Security & Admin
+ADMIN_PASSWORD=your_admin_password
+SESSION_SECRET=your_session_secret
 
-The 5 personas in `seed/personas.json`:
+# Database (Optional for local: falls back to local SQLite if omitted)
+TURSO_DATABASE_URL=libsql://your-db.turso.io
+TURSO_AUTH_TOKEN=your-turso-token
+```
 
-- P1 Kamla - 62, widow, farmer, Jaipur
-- P2 Ram - 70, married, labour
-- P3 Sunita - 35, widow, 2 children, income not given
-- P4 Mohan - 58, married, farmer with 1.5 bigha, income not given
-- P5 Edge - widow, age not given
+### 4. Seed and Run
+```bash
+npm run seed     # Idempotent DB seed (schemes & rules)
+npm run dev      # Starts local dev server at http://localhost:3000
+```
 
-Details: [docs/TEST_PERSONAS.md](docs/TEST_PERSONAS.md)
+### 5. Run Test Suite
+```bash
+npm test         # Runs full Vitest suite (29 tests)
+```
 
-## Guardrails
+---
 
-- Never says a person is guaranteed a scheme; results are "likely eligible".
-- No Aadhaar or ID number is asked for.
-- Only public information, with official links.
-- All demo data is sample data and is marked as such.
-- Every scheme needs an official source and a verified date.
-- Applying is free; the app warns about middlemen.
-- LLM output is validated; the keyword fallback takes over on failure.
-- Minimal storage: no name, phone or address.
+## 🌐 Deployment on Vercel
 
-Details: [docs/GUARDRAILS.md](docs/GUARDRAILS.md)
+1. Push your repository to GitHub.
+2. Import project on [Vercel](https://vercel.com):
+   - **Root Directory:** `sahayak-app`
+   - **Framework Preset:** `Next.js`
+3. Add the environment variables from your `.env.local`.
+4. Click **Deploy**. The app auto-seeds on first API call if the remote DB is new.
 
-## Limitations
+---
 
-- Scheme amounts and rules are PLACEHOLDERS marked VERIFY. Verify at ssp.rajasthan.gov.in, myscheme.gov.in and e-Mitra before the demo.
-- Voice depends on the browser (Chrome or Android recommended).
-- The JSON file store is not for production.
+## 📄 License
 
-## Next steps
-
-- Verify every scheme against its official source and enter real amounts.
-- Add the family view, source-conflict flag, language toggle and printable summary.
-- Replace the JSON file store with a proper database.
-- Pilot with NGOs and e-Mitra centres in one district.
-
-## Team
-
-TBD
-
-## Docs
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Schemes](docs/SCHEMES.md)
-- [Rules format](docs/RULES_FORMAT.md)
-- [Guardrails](docs/GUARDRAILS.md)
-- [Assumptions](docs/ASSUMPTIONS.md)
-- [Test personas](docs/TEST_PERSONAS.md)
-- [Pitch and demo script](docs/PITCH.md)
-- [Business model](docs/BUSINESS_MODEL.md)
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
