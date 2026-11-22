@@ -149,6 +149,25 @@ export default function FamilyPage() {
         if (Array.isArray(parsed) && parsed.length > 0) {
           setMembers(parsed);
           setActiveTabId(parsed[0].id);
+
+          // If any member has 0 matches (e.g. added before schemes were seeded), recalculate immediately
+          (async () => {
+            let neededUpdate = false;
+            const updated = await Promise.all(
+              parsed.map(async (m) => {
+                if (!m.matches || m.matches.length === 0) {
+                  neededUpdate = true;
+                  const freshMatches = await fetchMatchesForProfile(m.profile);
+                  return { ...m, matches: freshMatches };
+                }
+                return m;
+              })
+            );
+            if (neededUpdate) {
+              setMembers(updated);
+              persistLocal(updated);
+            }
+          })();
         }
       }
     } catch {}

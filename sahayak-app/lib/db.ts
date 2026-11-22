@@ -67,6 +67,29 @@ export async function initSchema(client: DbClient): Promise<void> {
     schemaPromise = (async () => {
       await client.executeMultiple(SCHEMA_SQL);
       schemaInitialized = true;
+      try {
+        const countRes = await client.execute("SELECT count(*) as count FROM schemes");
+        const count = Number(countRes.rows[0]?.count ?? 0);
+        if (count === 0) {
+          const path = require("node:path");
+          const fs = require("node:fs");
+          const seedPath = path.resolve(process.cwd(), "seed", "schemes.json");
+          const altSeedPath = path.resolve(process.cwd(), "sahayak-app", "seed", "schemes.json");
+          const actualPath = fs.existsSync(seedPath) ? seedPath : altSeedPath;
+          if (fs.existsSync(actualPath)) {
+            const raw = fs.readFileSync(actualPath, "utf8");
+            const schemes = JSON.parse(raw);
+            const now = new Date().toISOString();
+            for (const s of schemes) {
+              await client.execute({
+                sql: `INSERT INTO schemes (id, json, updated_at) VALUES (?, ?, ?)
+                      ON CONFLICT(id) DO UPDATE SET json = excluded.json, updated_at = excluded.updated_at`,
+                args: [s.id, JSON.stringify(s), now],
+              });
+            }
+          }
+        }
+      } catch {}
     })();
   }
   return schemaPromise;
