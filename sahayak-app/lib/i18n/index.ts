@@ -25,6 +25,7 @@ const FIELD_ALIASES: Record<string, { hi: string; en: string }> = {
 };
 
 function humanize(key: string, lang: Lang): string {
+  if (!key || typeof key !== "string") return "";
   if (key.startsWith("fields.")) {
     const field = key.replace(/^fields\./, "");
     if (FIELD_ALIASES[field]) {
@@ -44,6 +45,7 @@ export function translate(
   lang: Lang = "hi",
   vars?: Record<string, string | number>
 ): string {
+  if (!key || typeof key !== "string") return "";
   const dict = translations[lang] || translations.hi;
   let text = dict[key] ?? translations.hi[key] ?? humanize(key, lang);
 

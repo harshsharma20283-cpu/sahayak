@@ -11,6 +11,11 @@ const STATUSES = [
   "under_review",
   "approved",
   "rejected",
+  "SUBMITTED",
+  "IN_REVIEW",
+  "ACTION_NEEDED",
+  "APPROVED",
+  "REJECTED",
 ] as const;
 
 type Status = (typeof STATUSES)[number];
@@ -123,7 +128,24 @@ export async function POST(req: Request) {
       args: [id],
     });
     const row = rowRes.rows[0] as unknown as ApplicationRow;
-    return NextResponse.json({ application: toApplication(row) }, { status: 201 });
+    const schemeRow = schemeRes.rows[0];
+    let scheme_name_hi = schemeId;
+    let scheme_name_en = schemeId;
+    if (schemeRow?.json) {
+      try {
+        const parsed = JSON.parse(schemeRow.json as string);
+        scheme_name_hi = parsed.name_hi || scheme_name_hi;
+        scheme_name_en = parsed.name_en || scheme_name_en;
+      } catch {}
+    }
+
+    return NextResponse.json({
+      application: {
+        ...toApplication(row),
+        scheme_name_hi,
+        scheme_name_en,
+      },
+    }, { status: 201 });
   } catch {
     return NextResponse.json(SERVER_ERROR, { status: 500 });
   }
@@ -134,7 +156,26 @@ export async function GET() {
     const db = getDb();
     const res = await db.execute("SELECT * FROM applications ORDER BY created_at DESC");
     const rows = res.rows as unknown as ApplicationRow[];
-    return NextResponse.json({ applications: rows.map(toApplication) });
+
+    const schemesRes = await db.execute("SELECT id, json FROM schemes");
+    const schemeMap = new Map<string, { name_hi: string; name_en: string }>();
+    for (const s of schemesRes.rows) {
+      try {
+        const parsed = JSON.parse(s.json as string);
+        schemeMap.set(s.id as string, { name_hi: parsed.name_hi, name_en: parsed.name_en });
+      } catch {}
+    }
+
+    const applications = rows.map((row) => {
+      const scheme = schemeMap.get(row.scheme_id);
+      return {
+        ...toApplication(row),
+        scheme_name_hi: scheme?.name_hi || row.scheme_id,
+        scheme_name_en: scheme?.name_en || row.scheme_id,
+      };
+    });
+
+    return NextResponse.json({ applications });
   } catch {
     return NextResponse.json(SERVER_ERROR, { status: 500 });
   }
@@ -151,7 +192,7 @@ export async function PUT(req: Request) {
   if (data.status !== undefined && !isStatus(data.status)) {
     return badRequest(
       "अमान्य स्थिति",
-      "status must be one of saved, documents_ready, applied, under_review, approved, rejected",
+      "status must be one of saved, documents_ready, applied, under_review, approved, rejected, SUBMITTED, IN_REVIEW, ACTION_NEEDED, APPROVED, REJECTED",
     );
   }
   if (data.checklist !== undefined && !isStringArray(data.checklist)) {
@@ -190,8 +231,31 @@ export async function PUT(req: Request) {
       args: [id],
     });
     const row = rowRes.rows[0] as unknown as ApplicationRow;
-    return NextResponse.json({ application: toApplication(row) });
+
+    const schemeRes = await db.execute({
+      sql: "SELECT id, json FROM schemes WHERE id = ?",
+      args: [row.scheme_id],
+    });
+    let scheme_name_hi = row.scheme_id;
+    let scheme_name_en = row.scheme_id;
+    if (schemeRes.rows[0]) {
+      try {
+        const parsed = JSON.parse(schemeRes.rows[0].json as string);
+        scheme_name_hi = parsed.name_hi || scheme_name_hi;
+        scheme_name_en = parsed.name_en || scheme_name_en;
+      } catch {}
+    }
+
+    return NextResponse.json({
+      application: {
+        ...toApplication(row),
+        scheme_name_hi,
+        scheme_name_en,
+      },
+    });
   } catch {
     return NextResponse.json(SERVER_ERROR, { status: 500 });
   }
 }
+
+export const PATCH = PUT;

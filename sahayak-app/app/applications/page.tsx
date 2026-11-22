@@ -12,15 +12,36 @@ type ApplicationStatus =
   | "APPROVED"
   | "REJECTED";
 
+function normalizeStatus(st?: string): ApplicationStatus {
+  if (!st) return "SUBMITTED";
+  const upper = st.toUpperCase();
+  if (upper === "SAVED" || upper === "APPLIED" || upper === "DOCUMENTS_READY" || upper === "SUBMITTED") {
+    return "SUBMITTED";
+  }
+  if (upper === "UNDER_REVIEW" || upper === "IN_REVIEW") {
+    return "IN_REVIEW";
+  }
+  if (upper === "ACTION_NEEDED") {
+    return "ACTION_NEEDED";
+  }
+  if (upper === "APPROVED") {
+    return "APPROVED";
+  }
+  if (upper === "REJECTED") {
+    return "REJECTED";
+  }
+  return "SUBMITTED";
+}
+
 interface Application {
   id: string;
   scheme_id: string;
-  scheme_name_hi: string;
-  scheme_name_en: string;
-  reference_number: string | null;
-  status: ApplicationStatus;
-  applied_at: string;
-  notes: string | null;
+  scheme_name_hi?: string;
+  scheme_name_en?: string;
+  reference_number?: string | null;
+  status: string;
+  applied_at?: string;
+  notes?: string | null;
 }
 
 const STATUS_KEYS: Record<ApplicationStatus, string> = {
@@ -201,8 +222,13 @@ function ApplicationsContent() {
       {!loading && apps.length > 0 && (
         <ul className="space-y-5">
           {apps.map((app) => {
-            const schemeName = lang === "hi" ? app.scheme_name_hi : app.scheme_name_en;
-            const theme = STATUS_THEME[app.status] ?? STATUS_THEME.SUBMITTED;
+            const currentStatus = normalizeStatus(app.status);
+            const schemeName =
+              (lang === "hi" ? app.scheme_name_hi : app.scheme_name_en) ||
+              app.scheme_id?.replace(/_/g, " ") ||
+              "";
+            const theme = STATUS_THEME[currentStatus] ?? STATUS_THEME.SUBMITTED;
+            const statusKey = STATUS_KEYS[currentStatus] || "applications.status_submitted";
 
             return (
               <li key={app.id} className="glass-hover glass-card rounded-3xl p-6 sm:p-7 shadow-glass border border-white/80 space-y-5">
@@ -220,7 +246,7 @@ function ApplicationsContent() {
                       className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-bold border shadow-xs ${theme.badge} ${theme.text}`}
                     >
                       <span className={`h-2.5 w-2.5 rounded-full ${theme.dot} ${theme.glow}`} />
-                      {t(STATUS_KEYS[app.status])}
+                      {t(statusKey)}
                     </span>
                   </div>
                 </div>
@@ -232,7 +258,7 @@ function ApplicationsContent() {
                     </label>
                     <select
                       id={`status-${app.id}`}
-                      value={app.status}
+                      value={currentStatus}
                       onChange={(e) => void handleStatusChange(app.id, e.target.value as ApplicationStatus)}
                       className="min-h-[48px] w-full rounded-2xl border border-black/10 bg-white/90 px-4 text-sm sm:text-base font-semibold text-ink focus:border-primary focus:outline-none shadow-sm cursor-pointer"
                     >
