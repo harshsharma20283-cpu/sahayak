@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/components/LangProvider";
-import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <LangProvider>
           <div className="flex min-h-screen flex-col">
-            <TopBar />
             <Header />
             <main className="flex-1 w-full max-w-[1080px] mx-auto px-4 sm:px-6 py-6 pb-28 sm:pb-12">
               {children}
